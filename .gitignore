@@ -1,6 +1,6 @@
 node_modules
 eng.traineddata
-db/todos.json
 
+# db/todos.json
 # base_key.json
 # /json/bot_config.json
