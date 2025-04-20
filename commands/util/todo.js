@@ -4,7 +4,20 @@ const { write, read, wrongmessage, stringLimiter } = require("../../utils/functi
 module.exports = {
     name: "todo",
     aliases: ['td'],
-    arguments: ["read/(add/write)/(remove/delete)/(removeall/deleteall)", "ID"
+    arguments: [
+        {
+            label: "action",
+            options: [
+                ["read", "add", "write"],
+                ["remove", "delete"],
+                ["removeall", "deleteall"]
+            ],
+            isOptional: true
+        },
+        {
+            label : "ID",
+            isOptional : true
+        }
     ],
     run: async (client, message, args) => {
 

@@ -1,5 +1,5 @@
 const { CustomEmbed } = require("../../utils/custom")
-const { capitalizeFirstLetter } = require("../../utils/functions")
+const { capitalizeFirstLetter, argsToText } = require("../../utils/functions")
 
 module.exports = {
     name: "help",
@@ -10,7 +10,17 @@ module.exports = {
         if (args[0]) {
             const command = client.commands.get(args[0].toLowerCase()) || client.commands.find(c => c.aliases?.includes(args[0].toLowerCase()))
             if (!command) return message.channel.send({ content: "Invalid command name" })
-            message.channel.send(`The usage of ${command.name} command is:\n\`${client.config.prefix}${command.name}\` ${command?.arguments ? command.arguments.map(x => `\`<${x}>\``) : ""}`)
+            
+            
+
+            const cmdDetailsEmbed = new CustomEmbed()
+            .setTitle(`${client.config.prefix}${command.name}`)
+            .setDescription(`\`${client.config.prefix}${command.name}\` ${command?.arguments ? argsToText(command.arguments) : ""}`)
+
+            let fields = new Object()
+            .addFields()
+
+            message.channel.send({ embeds: [cmdDetailsEmbed] })
             return
         }
         
@@ -27,18 +37,14 @@ module.exports = {
             if (dir == "owner")
             if (!client.config.owner_ids.includes(message.author.id)) continue
             let field = new Object
-            field.name = `[ ${client.config.cmdCatEmoji[dir]}] ${capitalizeFirstLetter(dir)}`
+            field.name = `[ ${client.config.cmdCatEmoji[dir]} ] ${capitalizeFirstLetter(dir)}`
             field.value = new Array()
             cmdByDir[dir].forEach(cmd => field.value.push(`\`${cmd.name}\``))
-            field.value = field.value.join(" ")
+            field.value = field.value.join(", ")
             allCmdEmbed.addFields(field)
         }
 
         message.channel.send({ embeds: [allCmdEmbed], content: `To see detailed guide of a certain command you may use \`${client.config.prefix}help\` \`<command>\`` })
-
-        //console.log(cmdByDir)
-
-        //allCmdEmbed.addFields({ name: cmd.directory, value: cmd.name })
-        
+    
     },
 }
