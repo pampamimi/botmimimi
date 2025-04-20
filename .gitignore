@@ -1,5 +1,5 @@
 node_modules
-/db/todos.json
+db
 eng.traineddata
 base_key.json
-/json/bot_config.json
+json
