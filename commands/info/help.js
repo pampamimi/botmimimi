@@ -15,6 +15,7 @@ module.exports = {
         }
         
         const allCmdEmbed = new CustomEmbed()
+        .setThumbnail(client.user.displayAvatarURL())
         const cmdByDir = new Object()
 
         client.commands.forEach(cmd => {
@@ -23,15 +24,17 @@ module.exports = {
         })
 
         for (const dir in cmdByDir) {
+            if (dir == "owner")
+            if (!client.config.owner_ids.includes(message.author.id)) continue
             let field = new Object
-            field.name = capitalizeFirstLetter(dir)
+            field.name = `[ ${client.config.cmdCatEmoji[dir]}] ${capitalizeFirstLetter(dir)}`
             field.value = new Array()
             cmdByDir[dir].forEach(cmd => field.value.push(`\`${cmd.name}\``))
             field.value = field.value.join(" ")
             allCmdEmbed.addFields(field)
         }
 
-        message.channel.send({ embeds: [allCmdEmbed] })
+        message.channel.send({ embeds: [allCmdEmbed], content: `To see detailed guide of a certain command you may use \`${client.config.prefix}help\` \`<command>\`` })
 
         //console.log(cmdByDir)
 

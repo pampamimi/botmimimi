@@ -12,7 +12,7 @@ module.exports = {
             headers: {
                 Authorization: `Bot ${client.token}`,
             }
-        }).then((res) => {
+        }).then(res => {
             
             const
                 data = res.data,

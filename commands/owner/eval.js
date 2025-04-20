@@ -23,5 +23,6 @@ module.exports = {
         } catch (err) {
             message.reply({ content: `\`\`\`js\n${clean(err)}\`\`\`` })
         }
+        
     }
 }
