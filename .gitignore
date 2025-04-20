@@ -1,0 +1,4 @@
+node_modules
+./db/todos.json
+eng.traineddata
+base_key.json
