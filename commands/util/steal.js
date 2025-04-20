@@ -3,7 +3,11 @@ const { get } = require("axios")
 
 module.exports = {
     name: "steal",
-    arguments: ["UID"],
+    arguments: [
+        {
+            label: "UID"
+        }
+    ],
     run: async (client, message, args) => {
         
         const target = args[0] ? args[0] : message.author.id

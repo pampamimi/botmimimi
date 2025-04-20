@@ -4,21 +4,35 @@ const { capitalizeFirstLetter, argsToText } = require("../../utils/functions")
 module.exports = {
     name: "help",
     aliases: ["args"],
-    arguments: ["command"],
+    arguments: [
+        {
+            label: "command"
+        }
+    ],
     run: async (client, message, args) => {
         
         if (args[0]) {
+            let arg
             const command = client.commands.get(args[0].toLowerCase()) || client.commands.find(c => c.aliases?.includes(args[0].toLowerCase()))
             if (!command) return message.channel.send({ content: "Invalid command name" })
-            
-            
+
+            if (command?.arguments) arg = command.arguments
 
             const cmdDetailsEmbed = new CustomEmbed()
-            .setTitle(`${client.config.prefix}${command.name}`)
-            .setDescription(`\`${client.config.prefix}${command.name}\` ${command?.arguments ? argsToText(command.arguments) : ""}`)
-
-            let fields = new Object()
-            .addFields()
+            .setTitle(`Usage: \`${client.config.prefix}${command.name}\` ${command?.arguments ? argsToText(arg) : ""}`)
+            .setFooter({ text: "Note that some arguments may be optional." })
+        
+            if(arg) {
+                let field = new Object()
+                let value = new Array()
+                arg.forEach(x => {
+                    if (!x?.options) return
+                    x.options.forEach(y => value.push(typeof y === "object" ? y.join("/") : y))
+                    field.name = `Options for <${x.label}>`
+                    field.value = value.map(z => ` \`${z}\``).join(", ")
+                    cmdDetailsEmbed.addFields(field)
+                })
+            }
 
             message.channel.send({ embeds: [cmdDetailsEmbed] })
             return

@@ -8,15 +8,14 @@ module.exports = {
         {
             label: "action",
             options: [
-                ["read", "add", "write"],
+                "read",
+                ["add", "write"],
                 ["remove", "delete"],
                 ["removeall", "deleteall"]
-            ],
-            isOptional: true
+            ]
         },
         {
-            label : "ID",
-            isOptional : true
+            label : "ID"
         }
     ],
     run: async (client, message, args) => {

@@ -1,10 +1,16 @@
 const { CustomEmbed } = require("../../utils/custom")
 const { wrongmessage } = require("../../utils/functions")
 
+
+
 module.exports = {
     name: "nuke",
     aliases: ["frei"],
-    arguments: ["amount"],
+    arguments: [
+        {
+            label: "amount"
+        }
+    ],
     reqargs: 1,
     run: async (client, message, args) => {
         if (!parseInt(args[0])) return wrongmessage()

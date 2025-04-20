@@ -5,7 +5,11 @@ const { CustomEmbed } = require("../../utils/custom")
 module.exports = {
     name: "extractimage",
     aliases: ["extract", "ei", "gettext"],
-    arguments: ["URL(can be an attachment instead)"],
+    arguments: [
+        {
+            label: "URL(can be an attachment instead)"
+        }
+    ],
     run: async (client, message, args) => {
 
         let url

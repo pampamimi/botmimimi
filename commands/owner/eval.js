@@ -4,7 +4,11 @@ const func = require("../../utils/functions")
 module.exports = {
     name: "eval",
     aliases: ["e", "evaluate"],
-    arguments: ["code"],
+    arguments: [
+        {
+            label: "code"
+        }
+    ],
     reqargs: 1,
     run: async (client, message, args) => {
 

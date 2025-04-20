@@ -3,7 +3,11 @@ const { wrongmessage } = require("../../utils/functions")
 
 module.exports = {
     name: "dice",
-    arguments: ["amount 1-3"],
+    arguments: [
+        {
+            label: "amount 1-3"
+        }
+    ],
     run: (client, message, args) => {
 
         if (parseInt(args[0])) args[0] = parseInt(args[0])

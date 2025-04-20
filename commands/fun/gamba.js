@@ -1,6 +1,10 @@
 module.exports = {
     name: "gamba",
-    arguments: ["number(0-100)"],
+    arguments: [
+        {
+            label: "number(0-100)"
+        }
+    ],
     reqargs: 1,
     run: async (client, message, args) => {
         if (isNaN(parseInt(args[0]))) return message.channel.send({ content: "use numbers dumbass" });
