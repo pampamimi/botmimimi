@@ -1,18 +1,13 @@
-const { CustomEmbed } = require("../../utils/custom")
-const { get } = require("axios") 
+const CustomEmbed = require("../../utils/CustomEmbed")
 
 module.exports = {
     name: "steal",
-    arguments: [
-        {
-            label: "UID"
-        }
-    ],
+    arguments: [{label: "UID"}],
     run: async (client, message, args) => {
         
         const target = args[0] ? args[0] : message.author.id
 
-        get(`https://discord.com/api/users/${target}`, {
+        require("axios").get(`https://discord.com/api/users/${target}`, {
             headers: {
                 Authorization: `Bot ${client.token}`,
             }

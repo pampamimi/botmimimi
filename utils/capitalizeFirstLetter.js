@@ -1,0 +1,1 @@
+module.exports = (text) => String(text).charAt(0).toUpperCase() + String(text).slice(1)

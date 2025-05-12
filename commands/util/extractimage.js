@@ -1,15 +1,10 @@
-const { wrongmessage } = require("../../utils/functions")
-const { recognize } = require("tesseract.js")
-const { CustomEmbed } = require("../../utils/custom")
+const CustomEmbed = require("../../utils/CustomEmbed")
+const wrongmessage = require("../../utils/wrongMessage")
 
 module.exports = {
     name: "extractimage",
     aliases: ["extract", "ei", "gettext"],
-    arguments: [
-        {
-            label: "URL(can be an attachment instead)"
-        }
-    ],
+    arguments: [{label: "URL(can be an attachment instead)"}],
     run: async (client, message, args) => {
 
         let url
@@ -21,7 +16,7 @@ module.exports = {
         
         const fetched = await require("node-fetch")(url)
         const buffer = await fetched.buffer()
-        const result = (await recognize(buffer, "eng")).data
+        const result = (await require("tesseract.js").recognize(buffer, "eng")).data
 
         message.channel.send({
             content: `I am ${result.confidence}% confident about this text extraction`,

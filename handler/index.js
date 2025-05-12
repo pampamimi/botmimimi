@@ -1,15 +1,10 @@
 const { glob } = require("glob")
 const { promisify } = require("util")
-const { Client } = require("discord.js")
 
 const globPromise = promisify(glob)
 
-/**
- * @param {Client} client
- */
 module.exports = async (client) => {
 
-    // Commands
     const commandFiles = await globPromise(`${process.cwd()}/commands/**/*.js`)
     commandFiles.map((value) => {
         const file = require(value)
@@ -22,7 +17,6 @@ module.exports = async (client) => {
         }
     })
 
-    // Events
     const eventFiles = await globPromise(`${process.cwd()}/events/*.js`)
     eventFiles.map((value) => require(value))
 }

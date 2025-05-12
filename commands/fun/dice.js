@@ -1,13 +1,9 @@
-const { CustomEmbed } = require("../../utils/custom")
-const { wrongmessage } = require("../../utils/functions")
+const CustomEmbed = require("../../utils/CustomEmbed")
+const wrongmessage = require("../../utils/wrongMessage")
 
 module.exports = {
     name: "dice",
-    arguments: [
-        {
-            label: "amount 1-3"
-        }
-    ],
+    arguments: [{label: "amount 1-3"}],
     run: (client, message, args) => {
 
         if (parseInt(args[0])) args[0] = parseInt(args[0])

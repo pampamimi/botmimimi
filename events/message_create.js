@@ -1,16 +1,10 @@
 const client = require("../index")
-const func = require("../utils/functions")
+const wrongmessage = require("../utils/wrongMessage")
 
 client.on("messageCreate", async (message) => {
 
     if (message.content.toLowerCase() == "hello botmimimi") message.reply({ content: "hello!!!!" })
-
-    if (
-        message.author.bot ||
-        !message.guild ||
-        !message.content.toLowerCase().startsWith(client.config.prefix)
-    )
-        return
+    if (message.author.bot || !message.guild || !message.content.toLowerCase().startsWith(client.config.prefix)) return
 
     const [cmd, ...args] = message.content
         .slice(client.config.prefix.length)
@@ -26,7 +20,7 @@ client.on("messageCreate", async (message) => {
     if (command.directory == "owner" && !client.config.owner_ids.includes(message.author.id)) return
     if (command.reqargs)
         if (args.length < command.reqargs)
-            return func.wrongmessage("Please complete the missing arguments!")
+            return wrongmessage("Please complete the missing arguments!")
 
     await command.run(client, message, args)
 

@@ -1,14 +1,11 @@
-const { CustomEmbed } = require("../../utils/custom")
-const { capitalizeFirstLetter, argsToText } = require("../../utils/functions")
+const CustomEmbed = require("../../utils/CustomEmbed")
+const capitalizeFirstLetter = require("../../utils/capitalizeFirstLetter")
+const argsToText = require("../../utils/argsToText")
 
 module.exports = {
     name: "help",
     aliases: ["args"],
-    arguments: [
-        {
-            label: "command"
-        }
-    ],
+    arguments: [{label: "command"}],
     run: async (client, message, args) => {
         
         if (args[0]) {

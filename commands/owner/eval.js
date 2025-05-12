@@ -1,14 +1,7 @@
-// import made in case owner wants to run a function from function.js
-const func = require("../../utils/functions")
-
 module.exports = {
     name: "eval",
     aliases: ["e", "evaluate"],
-    arguments: [
-        {
-            label: "code"
-        }
-    ],
+    arguments: [{label: "code"}],
     reqargs: 1,
     run: async (client, message, args) => {
 

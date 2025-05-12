@@ -1,0 +1,1 @@
+module.exports = (text, limit, additionalCharCutAt) => (text.length > limit) ? text.slice(0, additionalCharCutAt || limit) + "..." : text
