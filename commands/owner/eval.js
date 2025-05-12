@@ -7,7 +7,7 @@ module.exports = {
 
         const clean = text => {
             if (typeof (text) === "string") text = text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203))
-            text = func.stringLimiter(text, 4000, 1988)
+            text = require("../../utils/stringLimiter")(text, 4000, 1988)
             return text
         }
 
