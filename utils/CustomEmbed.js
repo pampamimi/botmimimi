@@ -4,4 +4,3 @@ module.exports = class CustomEmbed extends require("discord.js").MessageEmbed {
         this.setColor(require("../json/bot_config.json").accent)
     }
 }
-
