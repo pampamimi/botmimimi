@@ -1,6 +1,11 @@
 {
-    "token": "",
     "prefix": "",
     "owner_ids": [""],
-    "accent": ""
+    "accent": "",
+    "cmdCatEmoji": {
+        "fun": ":video_game:",
+        "info": ":information_source:",
+        "owner": ":key:",
+        "util": ":gear:"
+    }
 }
