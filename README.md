@@ -23,8 +23,5 @@ Follow these steps to set up **Botmimimi** on your machine:
     ```
     node .
     ```
-    
-## Notes
-    
 ---
 This project is licensed under the [MIT License](https://github.com/pampamimi/botmimimi/blob/main/LICENSE).
