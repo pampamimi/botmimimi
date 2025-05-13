@@ -13,9 +13,8 @@ module.exports = {
             }
         }).then(res => {
             
-            const
-                data = res.data,
-                pict = `https://cdn.discordapp.com/avatars/${target}/${data.avatar}${data.avatar.startsWith("a_") ? ".gif" : ".png"}?size=2048`
+            const data = res.data
+            const pict = `https://cdn.discordapp.com/avatars/${target}/${data.avatar}${data.avatar.startsWith("a_") ? ".gif" : ".png"}?size=2048`
 
             message.channel.send({
             embeds: [

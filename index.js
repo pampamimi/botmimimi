@@ -7,6 +7,7 @@ client.commands = new Collection()
 client.slashCommands = new Collection()
 client.config = require("./json/bot_config.json")
 
+require('dotenv').config()
 require("./handler")(client)
 
-client.login(client.config.token)
+client.login(process.env.TOKEN)

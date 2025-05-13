@@ -3,7 +3,6 @@ const wrongmessage = require("../utils/wrongMessage")
 
 client.on("messageCreate", async (message) => {
 
-    if (message.content.toLowerCase() == "hello botmimimi") message.reply({ content: "hello!!!!" })
     if (message.author.bot || !message.guild || !message.content.toLowerCase().startsWith(client.config.prefix)) return
 
     const [cmd, ...args] = message.content
