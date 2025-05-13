@@ -3,7 +3,7 @@
 
 **Botmimimi** is my personal Discord bot. It is currently a work in progress, as I constantly update it for my own needs. This bot usually consists of me automating things that I feel are repetitive, so it saves me time. I’ll probably keep adding more stuff as I go — whatever I find useful or fun.
 
-## Installation 💿
+## Installation
 
 Follow these steps to set up **Botmimimi** on your machine:
 
@@ -12,13 +12,14 @@ Follow these steps to set up **Botmimimi** on your machine:
     ```
     git clone https://github.com/pampamimi/botmimimi.git
     ```
-3. Create a `.env.example` file and fill in the required strings
-4. Remove `.example` from the file extension so it leaves you with `.env`.
-5. Install the required dependencies by running the following command within the bot folder:
+3. Change `YOUR_DISCORD_APPLICATION_TOKEN` in .env.example to your Discord Application Token.
+4. Remove `.example` from the file extension, leaving you with `.env`.
+5. Fill in the `bot_config.json` file in the `json` folder.
+6. Install the required dependencies by running the following command within the bot folder:
     ```
     npm install
     ```
-6. Start the bot by running:
+7. Start the bot by running:
     ```
     node .
     ```
