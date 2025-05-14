@@ -23,7 +23,12 @@ module.exports = {
         try {
             message.channel.bulkDelete(toDelete).then(msgs => {
                 msgs.size ? msgs.size = 1 : ""
-                message.channel.send({ content: `${isFrei ? "Frei'd" : "Nuked"} the ${msgs.size > 1 ? `last ${msgs.size} messages` : "last message"} ☢️`, embeds: freiEmbed ? [freiEmbed] : [] })
+                message.channel.send({
+                    content: `${isFrei ? "Frei'd" : "Nuked"} the ${msgs.size > 1 ? `last ${msgs.size} messages` : "last message"} ☢️`,
+                    embeds: freiEmbed ? [freiEmbed] : [] 
+                }).then(notice => setTimeout(() => {
+                    notice.delete().catch(() => {})
+                }, 5000))
             })
         } catch {
             message.channel.send({ content: `Failed while ${isFrei ? "Frei-ing" : "Nuking"} message(s)... did you do something wrong?`})
