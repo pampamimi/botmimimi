@@ -12,8 +12,8 @@ Follow these steps to set up **Botmimimi** on your machine:
     ```
     git clone https://github.com/pampamimi/botmimimi.git
     ```
-3. Change `YOUR_DISCORD_APPLICATION_TOKEN` in .env.example to your Discord Application Token.
-4. Change `OWNER_ID` to your Discord User ID in .env.example, this allows certain user to run owner commands.
+3. Change `YOUR_DISCORD_APPLICATION_TOKEN` in `.env.example` to your Discord Application Token.
+4. Change `OWNER_ID` in `.env.example` to your Discord User ID.
 5. Remove `.example` from the file extension, leaving you with `.env`.
 6. Fill in the `bot_config.json` file within the `json` folder.
 7. Install the required dependencies by running the following command within the bot folder:
