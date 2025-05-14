@@ -1,0 +1,1 @@
+module.exports = () => Math.floor(Math.random() * 999) + new Date().getTime().toString().slice(-5)
