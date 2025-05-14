@@ -16,7 +16,7 @@ client.on("messageCreate", async (message) => {
 
     module.exports = { client, message, command }
 
-    if (command.directory == "owner" && !client.config.owner_ids.includes(message.author.id)) return
+    if (command.directory == "owner" && !process.env.OWNER_ID.split(",").includes(message.author.id)) return
     if (command.reqargs)
         if (args.length < command.reqargs)
             return wrongmessage("Please complete the missing arguments!")

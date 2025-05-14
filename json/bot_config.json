@@ -1,11 +1,4 @@
 {
-    "prefix": "",
-    "owner_ids": [""],
-    "accent": "",
-    "cmdCatEmoji": {
-        "fun": ":video_game:",
-        "info": ":information_source:",
-        "owner": ":key:",
-        "util": ":gear:"
-    }
+    "prefix": "$",
+    "accent": "#FDFFBA"
 }

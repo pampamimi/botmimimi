@@ -46,9 +46,9 @@ module.exports = {
 
         for (const dir in cmdByDir) {
             if (dir == "owner")
-            if (!client.config.owner_ids.includes(message.author.id)) continue
+            if (!process.env.OWNER_ID.split(",").includes(message.author.id)) continue
             let field = new Object
-            field.name = `[ ${client.config.cmdCatEmoji[dir]} ] ${capitalizeFirstLetter(dir)}`
+            field.name = `[ ${client.customEmojis["cat_"+dir]} ] ${capitalizeFirstLetter(dir)}`
             field.value = new Array()
             cmdByDir[dir].forEach(cmd => field.value.push(`\`${cmd.name}\``))
             field.value = field.value.join(", ")

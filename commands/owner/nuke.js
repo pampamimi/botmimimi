@@ -18,7 +18,7 @@ module.exports = {
 
         toDelete.shift()
         let freiEmbed
-        if (isFrei) freiEmbed = new CustomEmbed().setImage(require("../../json/assets.json").frei)
+        if (isFrei) freiEmbed = new CustomEmbed().setImage(client.assets.frei)
 
         try {
             message.channel.bulkDelete(toDelete).then(msgs => {

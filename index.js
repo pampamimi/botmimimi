@@ -6,6 +6,8 @@ module.exports = client
 client.commands = new Collection()
 client.slashCommands = new Collection()
 client.config = require("./json/bot_config.json")
+client.customEmojis  = require("./json/emojis.json")
+client.assets = require("./json/assets.json")
 
 require('dotenv').config()
 require("./handler")(client)
