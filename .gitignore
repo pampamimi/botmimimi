@@ -1,6 +1,7 @@
 node_modules
 eng.traineddata
 .env
+data.db
 
 # db/todos.json
 # base_key.json
