@@ -10,7 +10,7 @@ module.exports = {
         {label: "set as? (for \"set\")"}
     ],
     run: async (client, message, args) => {
-        const config = "json/bot_config.json"
+        const config = "src/json/bot_config.json"
         const rcfg = read(config)
 
         if (!args[0]) return message.channel.send({ content: `\`\`\`json\n${JSON.stringify(rcfg)}\`\`\``})

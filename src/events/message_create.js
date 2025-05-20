@@ -1,4 +1,4 @@
-const client = require("../index")
+const client = require("../../index")
 const wrongmessage = require("../utils/wrongMessage")
 
 client.on("messageCreate", async (message) => {

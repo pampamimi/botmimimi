@@ -12,15 +12,16 @@ module.exports = {
         {label : "ID"}
     ],
     run: async (client, message, args) => {
+        const dir = "src/db/todos.json"
 
         if(!require("../../db/todos.json")?.[message.author.id]) {
-            let data = read("db/todos.json")
+            let data = read(dir)
             data[message.author.id] = new Array()
-            write("db/todos.json", data)
+            write(dir, data)
         }
 
         if(args?.[0] == "read" || !args[0]) {
-            const data = read("db/todos.json")[message.author.id]
+            const data = read(dir)[message.author.id]
             let desc = new Array()
             if(!Boolean(data.length))
                 return message.channel.send({ content: "You have an empty to do list... :cricket:"})
@@ -36,26 +37,26 @@ module.exports = {
         }
 
         if (["add", "write"].includes(args[0])) {
-            const data = read("db/todos.json")
+            const data = read(dir)
             data[message.author.id].push(args.slice(1).join(" "))
-            write("db/todos.json", data)
+            write(dir, data)
             return message.channel.send({ content: `\`${stringLimiter(args.slice(1).join(" "), 1950)}\` has been added to your to do list!`})
         }
 
         if (["remove", "delete"].includes(args[0])) {
-            let data = read("db/todos.json")
+            let data = read(dir)
             if(!args[1] || !data[message.author.id]?.[parseInt(args[1]) - 1]) return message.channel.send({ content: "Please provide TO DO's id you wanted to remove."})
             data[message.author.id].splice(parseInt(args[1]) - 1, 1)
-            write("db/todos.json", data)
+            write(dir, data)
             return message.channel.send({ content: `TO DO with an ID of \`${args[1]}\` has been removed from the list!`})
         }
 
         if (["removeall", "deleteall"].includes(args[0])) {
-            let data = read("db/todos.json")
+            let data = read(dir)
             if(!Boolean(data?.[message.author.id].length))
                 return message.channel.send({ content: "But you have nothing in your list..."})
             data[message.author.id] = new Array()
-            write("db/todos.json", data)
+            write(dir, data)
             return message.channel.send({ content: "The burden is lifted :dove:"})
         }
 
