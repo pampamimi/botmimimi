@@ -4,5 +4,5 @@ module.exports = {
         await message.channel.send({ content: "Goodbye." })
         await new Promise(resolve => setTimeout(resolve, 1000));
         process.exit()
-    },
+    }
 }

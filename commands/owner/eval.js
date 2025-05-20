@@ -4,7 +4,6 @@ module.exports = {
     arguments: [{label: "code"}],
     reqargs: 1,
     run: async (client, message, args) => {
-
         const clean = text => {
             if (typeof (text) === "string") text = text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203))
             text = require("../../utils/stringLimiter")(text, 4000, 1988)

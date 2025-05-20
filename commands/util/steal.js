@@ -1,4 +1,4 @@
-const CustomEmbed = require("../../utils/CustomEmbed")
+const CustomEmbed = require("../../classes/CustomEmbed")
 
 module.exports = {
     name: "steal",
@@ -25,5 +25,5 @@ module.exports = {
             content: `[Source URL](${pict})`
         })
         })
-    },
+    }
 }

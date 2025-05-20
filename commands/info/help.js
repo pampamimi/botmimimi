@@ -1,4 +1,4 @@
-const CustomEmbed = require("../../utils/CustomEmbed")
+const CustomEmbed = require("../../classes/CustomEmbed")
 const capitalizeFirstLetter = require("../../utils/capitalizeFirstLetter")
 const argsToText = require("../../utils/argsToText")
 
@@ -45,8 +45,7 @@ module.exports = {
         })
 
         for (const dir in cmdByDir) {
-            if (dir == "owner")
-            if (!process.env.OWNER_ID.split(",").includes(message.author.id)) continue
+            if (dir == "owner" && !process.env.OWNER_ID.split(",").includes(message.author.id)) continue
             let field = new Object
             field.name = `[ ${client.customEmojis["cat_"+dir]} ] ${capitalizeFirstLetter(dir)}`
             field.value = new Array()
@@ -57,5 +56,5 @@ module.exports = {
 
         message.channel.send({ embeds: [allCmdEmbed], content: `To see detailed guide of a certain command you may use \`${client.config.prefix}help\` \`<command>\`` })
     
-    },
+    }
 }

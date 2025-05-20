@@ -1,4 +1,4 @@
-const CustomEmbed = require("../../utils/CustomEmbed")
+const CustomEmbed = require("../../classes/CustomEmbed")
 const wrongmessage = require("../../utils/wrongMessage")
 
 module.exports = {

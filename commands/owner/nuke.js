@@ -1,4 +1,4 @@
-const CustomEmbed = require("../../utils/CustomEmbed")
+const CustomEmbed = require("../../classes/CustomEmbed")
 const wrongmessage = require("../../utils/wrongMessage")
 
 module.exports = {
@@ -34,5 +34,5 @@ module.exports = {
             message.channel.send({ content: `Failed while ${isFrei ? "Frei-ing" : "Nuking"} message(s)... did you do something wrong?`})
         }
 
-    },
+    }
 }

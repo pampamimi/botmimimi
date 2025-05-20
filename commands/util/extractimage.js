@@ -1,4 +1,4 @@
-const CustomEmbed = require("../../utils/CustomEmbed")
+const CustomEmbed = require("../../classes/CustomEmbed")
 const wrongmessage = require("../../utils/wrongMessage")
 
 module.exports = {
@@ -22,5 +22,5 @@ module.exports = {
             content: `I am ${result.confidence}% confident about this text extraction`,
             embeds: [new CustomEmbed().setDescription(result.text.slice(0, -2))]
         })
-    },
+    }
 }

@@ -6,5 +6,5 @@ module.exports = {
         if (isNaN(parseInt(args[0]))) return message.channel.send({ content: "use numbers dumbass" });
         const gambakey = Math.floor(Math.random() * 100)
         message.channel.send({ content: gambakey.toString() })
-    },
+    }
 }

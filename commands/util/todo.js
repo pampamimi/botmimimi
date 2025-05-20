@@ -1,4 +1,4 @@
-const CustomEmbed = require("../../utils/CustomEmbed")
+const CustomEmbed = require("../../classes/CustomEmbed")
 const write = require("../../utils/write")
 const read = require("../../utils/read")
 const wrongmessage = require("../../utils/wrongMessage")
@@ -7,7 +7,10 @@ const stringLimiter = require("../../utils/stringLimiter")
 module.exports = {
     name: "todo",
     aliases: ['td'],
-    arguments: [{ label: "action", options: ["read", ["add", "write"], ["remove", "delete"], ["removeall", "deleteall"]]},{label : "ID"}],
+    arguments: [
+        { label: "action", options: ["read", ["add", "write"], ["remove", "delete"], ["removeall", "deleteall"]]},
+        {label : "ID"}
+    ],
     run: async (client, message, args) => {
 
         if(!require("../../db/todos.json")?.[message.author.id]) {
